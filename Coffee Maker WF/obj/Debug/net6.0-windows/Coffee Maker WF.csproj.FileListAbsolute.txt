@@ -1,0 +1,17 @@
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\bin\Debug\net6.0-windows\Coffee Maker WF.exe
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\bin\Debug\net6.0-windows\Coffee Maker WF.deps.json
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\bin\Debug\net6.0-windows\Coffee Maker WF.runtimeconfig.json
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\bin\Debug\net6.0-windows\Coffee Maker WF.dll
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\bin\Debug\net6.0-windows\Coffee Maker WF.pdb
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee_Maker_WF.FormCoffeeMaker.resources
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee_Maker_WF.Properties.Resources.resources
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.csproj.GenerateResource.cache
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.AssemblyInfoInputs.cache
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.AssemblyInfo.cs
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.csproj.CoreCompileInputs.cache
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.dll
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\refint\Coffee Maker WF.dll
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.pdb
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\Coffee Maker WF.genruntimeconfig.cache
+C:\Users\anhtu\OneDrive - Greenwich Vietnam\Documents\IT\C#\Coffee Maker WF\Coffee Maker WF\obj\Debug\net6.0-windows\ref\Coffee Maker WF.dll
