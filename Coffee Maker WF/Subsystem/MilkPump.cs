@@ -18,16 +18,16 @@ namespace Coffee_Maker_WF.Subsystem
             currentMilkAmount = 0;
         }
 
-        public void AddMilk(int amount)
+        public bool AddMilk(int amount)
         {
             if (currentMilkAmount + amount <= 250)
             {
                 currentMilkAmount += amount;
-                MessageBox.Show("Add " + amount + "ml Milk Successfully", "Successfully");
+                return true;
             }
             else
             {
-                MessageBox.Show("Exceeds The Maximum Capacity Of Milk (250ml)", "Error");
+                return false;
             }
         }
 

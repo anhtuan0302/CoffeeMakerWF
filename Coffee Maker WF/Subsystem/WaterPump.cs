@@ -17,16 +17,16 @@ namespace Coffee_Maker_WF.Subsystem
             currentWaterAmount = 0;
         }
 
-        public void AddWater(int amount)
+        public bool AddWater(int amount)
         {
             if (currentWaterAmount + amount <= 500)
             {
                 currentWaterAmount += amount;
-                MessageBox.Show("Add " + amount + "ml Water Successfully", "Successfully");
+                return true;
             }
             else
             {
-                MessageBox.Show("Exceeds The Maximum Capacity Of Water (500ml)", "Error");
+                return false;
             }
         }
 

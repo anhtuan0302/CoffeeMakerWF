@@ -191,6 +191,7 @@
             btnClean.TabIndex = 13;
             btnClean.Text = "Clean";
             btnClean.UseVisualStyleBackColor = false;
+            btnClean.Click += btnClean_Click;
             // 
             // txtBeansInput
             // 

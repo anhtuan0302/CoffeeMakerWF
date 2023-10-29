@@ -17,16 +17,16 @@ namespace Coffee_Maker_WF.Subsystem
             currentBeansAmount = 0;
         }
 
-        public void AddBeans(int amount)
+        public bool AddBeans(int amount)
         {
             if (currentBeansAmount + amount <= 250)
             {
                 currentBeansAmount += amount;
-                MessageBox.Show("Add " + amount + "g Beans Successfully", "Successfully");
+                return true;
             }
             else
             {
-                MessageBox.Show("Exceeds The Maximum Capacity Of Beans (250ml)", "Error");
+                return false;
             }
         }
 

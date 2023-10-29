@@ -24,9 +24,9 @@ namespace Coffee_Maker_WF
             heater = new Heater();
         }
 
-        public void AddBeans(int amount)
+        public bool AddBeans(int amount)
         {
-            grinder.AddBeans(amount);
+            return grinder.AddBeans(amount);
         }
 
         public int CurrentBeansAmount()
@@ -34,9 +34,9 @@ namespace Coffee_Maker_WF
             return grinder.currentBeansAmount;
         }
 
-        public void AddWater(int amount)
+        public bool AddWater(int amount)
         {
-            waterPump.AddWater(amount);
+            return waterPump.AddWater(amount);
         }
 
         public int CurrentWaterAmount()
@@ -44,9 +44,9 @@ namespace Coffee_Maker_WF
             return waterPump.currentWaterAmount;
         }
 
-        public void AddMilk(int amount)
+        public bool AddMilk(int amount)
         {
-            milkPump.AddMilk(amount);
+            return milkPump.AddMilk(amount);
         }
 
         public int CurrentMilkAmount()
@@ -84,24 +84,6 @@ namespace Coffee_Maker_WF
         {
             waterPump.SetWater(water);
             grinder.SetBeans(beans);
-            heater.SetTemp(92);
-            milkPump.SetMilk(milk);
-            milkPump.SetFrothMilk(frothMilk);
-            waterPump.PumpWater();
-            heater.Heat();
-            grinder.Grind();
-            milkPump.PumpMilk();
-            milkPump.PumpFrothMilk();
-            heater.Heat();
-            totalTime = waterPump.totalTime + heater.totalTime + grinder.totalTime + milkPump.totalTime;
-            Result cappuccino = new Result("Cappuccino", beans, water, milk, frothMilk, 92, totalTime);
-            return cappuccino;
-        }
-
-        public Result MakeLatte(int beans, int water, int milk, int frothMilk)
-        {
-            waterPump.SetWater(water);
-            grinder.SetBeans(beans);
             heater.SetTemp(94);
             milkPump.SetMilk(milk);
             milkPump.SetFrothMilk(frothMilk);
@@ -112,7 +94,25 @@ namespace Coffee_Maker_WF
             milkPump.PumpFrothMilk();
             heater.Heat();
             totalTime = waterPump.totalTime + heater.totalTime + grinder.totalTime + milkPump.totalTime;
-            Result latte = new Result("Latte", beans, water, milk, frothMilk, 94, totalTime);
+            Result cappuccino = new Result("Cappuccino", beans, water, milk, frothMilk, 94, totalTime);
+            return cappuccino;
+        }
+
+        public Result MakeLatte(int beans, int water, int milk, int frothMilk)
+        {
+            waterPump.SetWater(water);
+            grinder.SetBeans(beans);
+            heater.SetTemp(96);
+            milkPump.SetMilk(milk);
+            milkPump.SetFrothMilk(frothMilk);
+            waterPump.PumpWater();
+            heater.Heat();
+            grinder.Grind();
+            milkPump.PumpMilk();
+            milkPump.PumpFrothMilk();
+            heater.Heat();
+            totalTime = waterPump.totalTime + heater.totalTime + grinder.totalTime + milkPump.totalTime;
+            Result latte = new Result("Latte", beans, water, milk, frothMilk, 96, totalTime);
             return latte;
         }
 

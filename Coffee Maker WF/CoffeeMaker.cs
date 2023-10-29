@@ -1,4 +1,5 @@
 using Coffee_Maker_WF.Subsystem;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 
 namespace Coffee_Maker_WF
@@ -31,9 +32,15 @@ namespace Coffee_Maker_WF
             else
             {
                 int beansInput = int.Parse(txtBeansInput.Text);
-                coffeeMakerFacade.AddBeans(beansInput);
-                txtBeansOutput.Text = "Current: " + coffeeMakerFacade.CurrentBeansAmount().ToString();
-                txtBeansInput.Text = "";
+                if (coffeeMakerFacade.AddBeans(beansInput))
+                {
+                    txtBeansOutput.Text = "Current: " + coffeeMakerFacade.CurrentBeansAmount().ToString();
+                    txtBeansInput.Text = "";
+                }
+                else
+                {
+                       MessageBox.Show("Exceeds The Maximum Capacity Of Beans (250g)", "Error");
+                }
             }
         }
 
@@ -54,9 +61,15 @@ namespace Coffee_Maker_WF
             else
             {
                 int waterInput = int.Parse(txtWaterInput.Text);
-                coffeeMakerFacade.AddWater(waterInput);
-                txtWaterOutput.Text = "Current: " + coffeeMakerFacade.CurrentWaterAmount().ToString();
-                txtWaterInput.Text = "";
+                if (coffeeMakerFacade.AddWater(waterInput))
+                {
+                    txtWaterOutput.Text = "Current: " + coffeeMakerFacade.CurrentWaterAmount().ToString();
+                    txtWaterInput.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Exceeds The Maximum Capacity Of Water (500ml)", "Error");
+                }
             }
         }
 
@@ -77,9 +90,15 @@ namespace Coffee_Maker_WF
             else
             {
                 int milkInput = int.Parse(txtMilkInput.Text);
-                coffeeMakerFacade.AddMilk(milkInput);
-                txtMilkOutput.Text = "Current: " + coffeeMakerFacade.CurrentMilkAmount().ToString();
-                txtMilkInput.Text = "";
+                if(coffeeMakerFacade.AddMilk(milkInput))
+                {
+                    txtMilkOutput.Text = "Current: " + coffeeMakerFacade.CurrentMilkAmount().ToString();
+                    txtMilkInput.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Exceeds The Maximum Capacity Of Milk (250ml)", "Error");
+                }
             }
         }
 
@@ -174,23 +193,38 @@ namespace Coffee_Maker_WF
                     txtWaterCustom.Text = "17";
                     txtMilkCustom.Text = "0";
                     txtFrothMilkCustom.Text = "0";
-                    var espresso = coffeeMakerFacade.MakeEspresso(8, 17);
-                    txtBeansOutput.Text = "Current: " + coffeeMakerFacade.CurrentBeansAmount().ToString();
-                    txtWaterOutput.Text = "Current: " + coffeeMakerFacade.CurrentWaterAmount().ToString();
-                    txtName.Text = espresso.name;
-                    txtTemp.Text = espresso.temperature.ToString();
-                    txtBeans.Text = espresso.beansAmount.ToString();
-                    txtWater.Text = espresso.waterAmount.ToString();
-                    txtMilk.Text = espresso.milkAmount.ToString();
-                    txtFrothMilk.Text = espresso.frothMilkAmount.ToString();
-                    txtFinalVolume.Text = espresso.finalVolume.ToString();
-                    if (espresso.finalTime < 60)
+                    if (int.Parse(txtBeansCustom.Text) > coffeeMakerFacade.CurrentBeansAmount() || int.Parse(txtWaterCustom.Text) > coffeeMakerFacade.CurrentWaterAmount())
                     {
-                        txtFinalTime.Text = espresso.finalTime.ToString() + " seconds";
+                        MessageBox.Show("Please Add Beans Or Water!", "Error");
+                        txtName.Text = "Error";
+                        txtTemp.Text = "Error";
+                        txtBeans.Text = "Error";
+                        txtWater.Text = "Error";
+                        txtMilk.Text = "Error";
+                        txtFrothMilk.Text = "Error";
+                        txtFinalVolume.Text = "Error";
+                        txtFinalTime.Text = "Error";
                     }
                     else
                     {
-                        txtFinalTime.Text = (espresso.finalTime / 60).ToString() + " minutes " + (espresso.finalTime % 60).ToString() + " seconds";
+                        var espresso = coffeeMakerFacade.MakeEspresso(8, 17);
+                        txtBeansOutput.Text = "Current: " + coffeeMakerFacade.CurrentBeansAmount().ToString();
+                        txtWaterOutput.Text = "Current: " + coffeeMakerFacade.CurrentWaterAmount().ToString();
+                        txtName.Text = espresso.name;
+                        txtTemp.Text = espresso.temperature.ToString();
+                        txtBeans.Text = espresso.beansAmount.ToString();
+                        txtWater.Text = espresso.waterAmount.ToString();
+                        txtMilk.Text = espresso.milkAmount.ToString();
+                        txtFrothMilk.Text = espresso.frothMilkAmount.ToString();
+                        txtFinalVolume.Text = espresso.finalVolume.ToString();
+                        if (espresso.finalTime < 60)
+                        {
+                            txtFinalTime.Text = espresso.finalTime.ToString() + " seconds";
+                        }
+                        else
+                        {
+                            txtFinalTime.Text = (espresso.finalTime / 60).ToString() + " minutes " + (espresso.finalTime % 60).ToString() + " seconds";
+                        }
                     }
                 }
                 if (rdbCustom.Checked)
@@ -214,6 +248,14 @@ namespace Coffee_Maker_WF
                     else if (int.Parse(txtBeansCustom.Text) > coffeeMakerFacade.CurrentBeansAmount() || int.Parse(txtWaterCustom.Text) > coffeeMakerFacade.CurrentWaterAmount())
                     {
                         MessageBox.Show("Please Add Beans Or Water!", "Error");
+                        txtName.Text = "Error";
+                        txtTemp.Text = "Error";
+                        txtBeans.Text = "Error";
+                        txtWater.Text = "Error";
+                        txtMilk.Text = "Error";
+                        txtFrothMilk.Text = "Error";
+                        txtFinalVolume.Text = "Error";
+                        txtFinalTime.Text = "Error";
                     }
                     else
                     {
@@ -296,6 +338,14 @@ namespace Coffee_Maker_WF
                     else if (int.Parse(txtBeansCustom.Text) > coffeeMakerFacade.CurrentBeansAmount() || int.Parse(txtWaterCustom.Text) > coffeeMakerFacade.CurrentWaterAmount())
                     {
                         MessageBox.Show("Please Add Beans Or Water!", "Error");
+                        txtName.Text = "Error";
+                        txtTemp.Text = "Error";
+                        txtBeans.Text = "Error";
+                        txtWater.Text = "Error";
+                        txtMilk.Text = "Error";
+                        txtFrothMilk.Text = "Error";
+                        txtFinalVolume.Text = "Error";
+                        txtFinalTime.Text = "Error";
                     }
                     else
                     {
@@ -375,6 +425,14 @@ namespace Coffee_Maker_WF
                     else if (int.Parse(txtBeansCustom.Text) > coffeeMakerFacade.CurrentBeansAmount() || int.Parse(txtWaterCustom.Text) > coffeeMakerFacade.CurrentWaterAmount() || int.Parse(txtMilkCustom.Text) > coffeeMakerFacade.CurrentMilkAmount() || int.Parse(txtFrothMilkCustom.Text) > coffeeMakerFacade.CurrentMilkAmount())
                     {
                         MessageBox.Show("Please Add Beans, Water, Milk Or Froth Milk!", "Error");
+                        txtName.Text = "Error";
+                        txtTemp.Text = "Error";
+                        txtBeans.Text = "Error";
+                        txtWater.Text = "Error";
+                        txtMilk.Text = "Error";
+                        txtFrothMilk.Text = "Error";
+                        txtFinalVolume.Text = "Error";
+                        txtFinalTime.Text = "Error";
                     }
                     else
                     {
@@ -457,6 +515,14 @@ namespace Coffee_Maker_WF
                     else if (int.Parse(txtBeansCustom.Text) > coffeeMakerFacade.CurrentBeansAmount() || int.Parse(txtWaterCustom.Text) > coffeeMakerFacade.CurrentWaterAmount() || int.Parse(txtMilkCustom.Text) > coffeeMakerFacade.CurrentMilkAmount() || int.Parse(txtFrothMilkCustom.Text) > coffeeMakerFacade.CurrentMilkAmount())
                     {
                         MessageBox.Show("Please Add Beans, Water, Milk Or Froth Milk!", "Error");
+                        txtName.Text = "Error";
+                        txtTemp.Text = "Error";
+                        txtBeans.Text = "Error";
+                        txtWater.Text = "Error";
+                        txtMilk.Text = "Error";
+                        txtFrothMilk.Text = "Error";
+                        txtFinalVolume.Text = "Error";
+                        txtFinalTime.Text = "Error";
                     }
                     else
                     {
@@ -506,6 +572,11 @@ namespace Coffee_Maker_WF
             txtWaterCustom.ReadOnly = false;
             txtMilkCustom.ReadOnly = false;
             txtFrothMilkCustom.ReadOnly = false;
+        }
+
+        private void btnClean_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
